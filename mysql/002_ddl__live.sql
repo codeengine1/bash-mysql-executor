@@ -1,0 +1,1 @@
+ALTER TABLE example_table ADD COLUMN `example_alter` VARCHAR(32) NOT NULL DEFAULT 'fixed';

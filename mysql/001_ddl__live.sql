@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS `bashtest`;
+
+CREATE TABLE IF NOT EXISTS reference_table (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(32) NOT NULL,
+  date_created datetime(6) DEFAULT CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS example_table (
+  id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  reference_table_id INT(10) UNSIGNED NOT NULL,
+  date_created datetime(6) DEFAULT CURRENT_TIMESTAMP(6),
+  date_modified datetime(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (id),
+  KEY ix_date_created (date_created)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
